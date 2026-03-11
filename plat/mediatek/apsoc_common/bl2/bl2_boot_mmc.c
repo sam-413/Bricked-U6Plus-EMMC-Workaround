@@ -422,7 +422,7 @@ int mtk_fip_image_setup(uintptr_t *dev_handle, uintptr_t *image_spec)
 	return mtk_dual_fip_image_setup(dev_handle, image_spec);
 #endif
 
-	*dev_handle = fill_io_block_spec_gpt(&mmc_dev_fip_spec, "fip");
+	*dev_handle = fill_io_block_spec_gpt(&mmc_dev_fip_spec, "u-boot");
 	if (!*dev_handle)
 		return -ENOENT;
 
