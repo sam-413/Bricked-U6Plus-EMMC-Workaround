@@ -36,7 +36,7 @@ static const uint32_t msdc0_pins[] = {
 static const uint32_t msdc0_pupd[] = {
         MT_GPIO_PULL_UP, MT_GPIO_PULL_UP, MT_GPIO_PULL_UP, MT_GPIO_PULL_UP,
         MT_GPIO_PULL_UP, MT_GPIO_PULL_UP, MT_GPIO_PULL_UP, MT_GPIO_PULL_UP,
-        MT_GPIO_PULL_UP, MT_GPIO_PULL_UP, MT_GPIO_PULL_DOWN,
+        MT_GPIO_PULL_UP, MT_GPIO_PULL_UP, MT_GPIO_PULL_UP,
 };
 
 
@@ -103,14 +103,14 @@ static void mmc_gpio_setup(void)
 		0x7 << EMMC45_DAT5_DRV_S | 0x7 << EMMC45_DAT6_DRV_S |
 		0x7 << EMMC45_CLK_DRV_S  | 0x7 << EMMC45_CMD_DRV_S,
 
-		0x1 << EMMC45_RSTB_DRV_S | 0x1 << EMMC45_DAT0_DRV_S |
-		0x1 << EMMC45_DAT3_DRV_S | 0x1 << EMMC45_DAT4_DRV_S |
-		0x1 << EMMC45_DAT2_DRV_S | 0x1 << EMMC45_DAT1_DRV_S |
-		0x1 << EMMC45_DAT5_DRV_S | 0x1 << EMMC45_DAT6_DRV_S |
-		0x1 << EMMC45_CLK_DRV_S  | 0x1 << EMMC45_CMD_DRV_S);
+		0x2 << EMMC45_RSTB_DRV_S | 0x2 << EMMC45_DAT0_DRV_S |
+		0x2 << EMMC45_DAT3_DRV_S | 0x2 << EMMC45_DAT4_DRV_S |
+		0x2 << EMMC45_DAT2_DRV_S | 0x2 << EMMC45_DAT1_DRV_S |
+		0x2 << EMMC45_DAT5_DRV_S | 0x2 << EMMC45_DAT6_DRV_S |
+		0x2 << EMMC45_CLK_DRV_S  | 0x2 << EMMC45_CMD_DRV_S);
 
        mmio_clrsetbits_32(MSDC_GPIO_DRV_CFG1,
-		0x7 << EMMC45_DAT7_DRV_S, 0x1 << EMMC45_DAT7_DRV_S);
+		0x7 << EMMC45_DAT7_DRV_S, 0x2 << EMMC45_DAT7_DRV_S);
 }
 
 int mtk_plat_mmc_setup(uint32_t *num_sectors)
